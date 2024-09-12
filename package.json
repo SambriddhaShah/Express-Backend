@@ -1,0 +1,16 @@
+{
+  "name": "backendproject",
+  "version": "1.0.0",
+  "description": "a backend for youtube clone project",
+  "main": "index.js",
+  "scripts": {
+   "start":"node index.js"
+  },
+  "keywords": [
+    "javascript",
+    "backend",
+    "express"
+  ],
+  "author": "Sambriddha Jung Shah",
+  "license": "ISC"
+}
