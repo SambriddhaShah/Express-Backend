@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "a backend for youtube clone project",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-   "start":"node index.js"
+    "dev":"nodemon src/index.js"
   },
   "keywords": [
     "javascript",
@@ -12,5 +13,11 @@
     "express"
   ],
   "author": "Sambriddha Jung Shah",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
 }
