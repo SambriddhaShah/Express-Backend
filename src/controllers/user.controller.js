@@ -10,7 +10,7 @@ const registerUser= asyncHandler( async(req,res)=>{
     // })
 
     const {fullName, email, password, username} = req.body
-    console.log('email', email)
+    // console.log('email', email)
 
     // if(fullName===""){
     //     throw new ApiError(400, "Fullname is required")
@@ -23,7 +23,7 @@ const registerUser= asyncHandler( async(req,res)=>{
     }
 
     //check if user already exists
-     const existantUser=  User.findOne({
+     const existantUser= await User.findOne({
         $or:[
             {username},
             {email}
@@ -36,7 +36,14 @@ const registerUser= asyncHandler( async(req,res)=>{
     //check for files
 
     const avaratrLocalPath = req.files?.avatar[0]?.path;
-    const coverImageLocalPath = req.files?.converImage[0]?.path;
+    // const coverImageLocalPath = req.files?.coverImage[0]?.path;
+
+    let coverImageLocalPath;
+    if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length>0)
+       { coverImageLocalPath = req.files?.coverImage[0]?.path;
+     
+
+    }
 
     //check fot avatar if it has come or not
 

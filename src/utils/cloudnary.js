@@ -20,7 +20,8 @@ import fs from 'fs';
                 //uploading the file now 
                const response = await cloudinary.uploader.upload(localFilePath,{resource_type:"auto"})
                 //sucessfully uploaded
-                console.log(`file has been uploaded in Cloudinary with respone ${response.url}`)
+                // console.log(`file has been uploaded in Cloudinary with respone ${response.url}`)
+                fs.unlinkSync(localFilePath);
                 return response;
             }
 
