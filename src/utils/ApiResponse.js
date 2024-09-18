@@ -26,3 +26,5 @@ class ApiResponse {
         //    otherwise set it to `false` (indicating an error). This is a simple way to flag whether the response is successful.
     }
 }
+
+export { ApiResponse }
