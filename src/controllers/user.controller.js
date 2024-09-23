@@ -311,4 +311,6 @@ export {
     changeCurrentPassword,
     getCurrentUser,
     updateAccountDetails,
+    updateAvatar,
+    updateCoverImage
 }
