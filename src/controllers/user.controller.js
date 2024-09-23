@@ -117,8 +117,8 @@ const loginUser=asyncHandler(async (req, res) => {
 
     //check if email or username
     if(
-        // !(email || username)
-        !username && !email
+        !(email || username)
+        // !username && !email
     ){
         throw new ApiError(400, "Email or Username is required")
     }
@@ -193,7 +193,7 @@ const logoutUser= asyncHandler(async(req,res)=>{
 })
 
 const refreshAccessToken= asyncHandler(async(req,res)=>{
-    const incomingRefreshToken= req.cookies.refreshToken || req.body.refreshToken
+    const incomingRefreshToken= req.cookies?.refreshToken || req.body.refreshToken
 
     if(!incomingRefreshToken){
         throw new ApiError(401, "Not authorized, token is missing")
