@@ -1,5 +1,6 @@
 import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs';
+import { pathToFileURL } from 'url';
 
 
     // Configuration
@@ -31,7 +32,26 @@ import fs from 'fs';
         }
     }
 
-    export {uploadOnCloudinary}
+    const deleteOldFiles= async(pathToFileURL)=>{
+        try{
+            if(!pathToFileURL){
+                return null;
+            }else{
+                const fileId = pathToFileURL.pathname.split('/')[3];
+                await cloudinary.uploader.destroy(fileId)
+                return true;
+            }
+        }catch(e){
+            return null;
+        }
+    }
+
+    export {
+        uploadOnCloudinary,
+        deleteOldFiles
+        
+
+    }
    
 
     
