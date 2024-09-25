@@ -35,13 +35,16 @@ import { pathToFileURL } from 'url';
     const deleteOldFiles= async(pathToFileURL)=>{
         try{
             if(!pathToFileURL){
+                console.log('hello')
                 return null;
             }else{
-                const fileId = pathToFileURL.pathname.split('/')[3];
+                const fileId = pathToFileURL.split('/')[7].split('.')[0];
+                console.log(`the file id is ${fileId}`);
                 await cloudinary.uploader.destroy(fileId)
                 return true;
             }
         }catch(e){
+            console.log(e.message)
             return null;
         }
     }
